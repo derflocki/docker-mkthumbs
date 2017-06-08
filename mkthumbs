@@ -1,0 +1,12 @@
+#!/bin/sh
+FILES=$(find "/video" -type f | grep -E -i "(3gp|avi|divx|flv|m4v|mkv|mp4|mpeg|mpg|ogm|ogv|wmv)$")
+IFS='
+'
+for f in $FILES
+do :
+	dst="$f.cover.jpg"
+	if [ ! -e "$dst" ]; then
+		echo "generating $dst"
+		ffmpegthumbnailer -i "$f" -o "$dst"
+	fi
+done
