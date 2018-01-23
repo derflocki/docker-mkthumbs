@@ -7,6 +7,6 @@ do :
 	dst="$f.cover.jpg"
 	if [ ! -e "$dst" ]; then
 		echo "generating $dst"
-		ffmpegthumbnailer -i "$f" -o "$dst"
+		ffmpegthumbnailer -s 0 -i "$f" -o "$dst"
 	fi
 done
