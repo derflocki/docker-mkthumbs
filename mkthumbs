@@ -6,13 +6,7 @@ for f in $FILES
 do :
 	dst="$f.cover.jpg"
 	if [ ! -e "$dst" ]; then
-
-		if [ ! -e "$f.metathumb" ]; then
-			echo "symlinking from $f.metathumb"
-			ln -s $(basename "$f.metathumb") "$dst"
-		else
-			echo "generating $dst"
-			ffmpegthumbnailer -s 0 -i "$f" -o "$dst"
-		fi
+		echo "generating $dst"
+		ffmpegthumbnailer -s 0 -i "$f" -o "$dst"
 	fi
 done
