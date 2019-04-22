@@ -9,7 +9,7 @@ do :
 
 		if [ ! -e "$f.metathumb" ]; then
 			echo "symlinking from $f.metathumb"
-			ln -s "$f.metathumb" "$dst"
+			ln -s $(basename "$f.metathumb") "$dst"
 		else
 			echo "generating $dst"
 			ffmpegthumbnailer -s 0 -i "$f" -o "$dst"
